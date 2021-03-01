@@ -2,39 +2,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main2 {
 
 
-        public static void main(String[] args) {
-                ArrayList BücherListe = new ArrayList<>();  // Liste in der alle Bücher gespeichert werden
-                ArrayList StudentenListe = new ArrayList<>(); // Liste in der alle Studenten gespeichert werden
+    public static void main(String[] args) {
+        ArrayList BücherListe = new ArrayList<>();  // list where books be saved
+        ArrayList StudentenListe = new ArrayList<>(); // list where students be saved
 
-                int i = 1;
+        int i = 1;
 
-                while (i == 1) { // führt die Anwendung solange aus , bis Schritt 5 ausgeführt wird
-                        System.out.println("Was möchten sie heute tun ? (Tipp: zuerst immer etwas kreieren)  \n" +
-                                "1 = Ich möchte einen Studenten oder ein Buch kreieren \n " +
-                                "2 = ich möchte ein Studenten/Buch aktualisieren \n " +
-                                "3 = Ich brauche Informationen über ein Student/Buch \n " +
-                                "4 = Ich möchte einen Studenten/Buch löschen \n " +
-                                "5 = Ich will die Anwendung verlassen");
-                        Scanner scannerVariable = new Scanner(System.in);
+        while (i == 1) { // run the application until case 5 happens
+            System.out.println("What do you want to do today ? (hint: start with creating something)  \n" +
+                    "1 = I want to create a Book / Student \n " +
+                    "2 = I watnt o update a Book / Student \n " +
+                    "3 = I need  information about a Book /Student \n " +
+                    "4 = I want to delete a Book / Student \n " +
+                    "5 = I want to Exit \n");
+            Scanner scannerVariable = new Scanner(System.in);
 
-                        System.out.print("geben sie die entsprechende Zahl ein : ");
-                        int number = scannerVariable.nextInt();
-                        System.out.print("sie haben " + "  " + number + " " + "eingegeben,  \n");
+            System.out.print("Type in your number(1-5) : ");
+            int number = scannerVariable.nextInt();
+            System.out.print("You typed" + "  " + number + " " +   "\n");
 
 
-                        switch (number) {
-                                case 1:
-                                        System.out.println("was wollen sie kreieren? geben sie 1 für Buch ein und 2 für Student");
-                                        int buch = scannerVariable.nextInt();
-                                        if (buch == 1) {
+            switch (number) {
+                case 1:
+                    System.out.println("What do you want to create ? Book  = 1 / Student =  2 ");
+                    int buch = scannerVariable.nextInt();
+                    if (buch == 1) {
 
-                                                BücherListe.add("Harry Potter");
-                                                BücherListe.add("440 Seiten");
-                                                BücherListe.add("Author J.K. Rowling");
-                                                System.out.println(BücherListe);
+                        BücherListe.add("Harry Potter");
+                        BücherListe.add("440 pages");
+                        BücherListe.add("Author J.K. Rowling");
+                        System.out.println(BücherListe + "\n");
                                                 /*Book bookObject = new Book(109);
                                                 bookObject.setName("Harry Potter");
                                                 listBook.add(bookObject);
@@ -42,12 +42,12 @@ public class Main {
                                                 System.out.println("Name B : " + bookObject.getName());
                                                 System.out.println("Seitenzahl : " + bookObject.getSeitenzahl());
                                                 */
-                                        } else {
+                    } else {
 
-                                                StudentenListe.add("Paul Volk");
-                                                StudentenListe.add(" Mtrknr. 3453234");
-                                                StudentenListe.add("1. Semester");
-                                                System.out.println(StudentenListe);
+                        StudentenListe.add("Paul Volk");
+                        StudentenListe.add(" Mtrknr. 3453234");
+                        StudentenListe.add("1. Semester");
+                        System.out.println(StudentenListe);
 
 
 
@@ -59,47 +59,58 @@ public class Main {
                                                 System.out.println(" Name S : " + studentObject.getName());
                                                 */
 
-                                        }
-                                        System.out.print("Sie kehren jetzt ins Menü zurück \n ");
-                                        break;
+                    }
+                    System.out.print("Back to the menu  \n ");
+                    break;
 
-                                case 2:
-                                        System.out.println("sie wollen also einen Studenten aktualisieren");
-                                        System.out.println("Guide : ... Geben sie im Menü 1 ein und verändern sie einfach die Werte im Code");
-                                        break;
+                case 2:
+                    if(BücherListe.isEmpty() & StudentenListe.isEmpty()){
+                        System.out.print("Pls create something first ;)");
+                    }else {
 
-                                case 3: System.out.println("Infos zu Buch = 1 oder Student = 2 ?  ");
-                                        int IBS = scannerVariable.nextInt();
-                                        if(IBS == 1) {
-                                                System.out.println(BücherListe);
+                        System.out.println("Seems like you want to update a Book/Student");
+                        System.out.println("Guide : ... You have to change the Code , this is not ready yet :(");
 
-                                        }else{
-                                                System.out.println(StudentenListe);
-                                        }
-                                        break;
-                                case 4:System.out.println("Sie möchten also einen Student/Buch löschen \n" + " 1 = Buch und 2 = Student" );
-                                        int wasloeschen = scannerVariable.nextInt();
-                                        if(wasloeschen == 1){
-                                                System.out.println(BücherListe);
-                                                System.out.println("welches Buch möchten sie löschen ?");
-                                                BücherListe.clear();
-                                                System.out.print("Ich Lösche ihre Auswahl \n");
-
-                                        }else{
-                                                System.out.println(StudentenListe);
-                                                System.out.println("Welcher Student soll gelöscht werden ?" );
-                                                StudentenListe.clear();
-                                                System.out.print("  Ich Lösche ihre Auswahl \n ");
-                                        }
+                    }
+                    break;
+                case 3:if(BücherListe.isEmpty() & StudentenListe.isEmpty()){
+                    System.out.print("pls create something first ;)");
+                }else {
 
 
+                    System.out.println("Info about Book = 1 or Student = 2 ?  ");
+                    int IBS = scannerVariable.nextInt();
+                    if (IBS == 1) {
+                        System.out.println(BücherListe);
 
-                                        break;
-                                case 5: System.out.println("sie verlassen nun die Anwendung");
-                                        i++;
-                        }
+                    } else {
+                        System.out.println(StudentenListe);
+                    }
                 }
+                    break;
+                case 4:System.out.println("You want to delete a Book/Student \n" + " 1 = Buch und 2 = Student" );
+                    int wasloeschen = scannerVariable.nextInt();
+                    if(wasloeschen == 1){
+                        System.out.println(BücherListe);
+                        System.out.println("What book do you want to delete?");
+                        BücherListe.clear();
+                        System.out.print("I will delete it for you\n");
+
+                    }else{
+                        System.out.println(StudentenListe);
+                        System.out.println("Which studendo you want to delete?" );
+                        StudentenListe.clear();
+                        System.out.print("I will delete him for you  \n ");
+                    }
 
 
+
+                    break;
+                case 5: System.out.println("You will leave the application");
+                    i++;
+            }
         }
+
+
+    }
 }
