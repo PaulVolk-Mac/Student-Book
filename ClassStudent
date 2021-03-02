@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Student
+{
+    private final String lastName;
+    private String age;
+     private String firstName;
+
+    public Student(String firstNamename, String lastName) {
+        this.age = age;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    public String getLastname() {
+        return lastName;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public static void addStudent(String firstName,String lastName, int age ) {
+        String fN = firstName;
+        String lN = lastName;
+        int age1 = age;
+
+        Scanner keyboard = new Scanner(System.in);
+
+
+
+        System.out.println(" Enter first name");
+        firstName = keyboard.nextLine();
+
+        System.out.println("Enter last name");
+        lastName = keyboard.nextLine();
+
+        System.out.println("how old are you ?");
+        age = keyboard.nextInt();
+
+
+
+
+    return;
+
+    }
+    public void updateStudent(){
+
+    }
+    public void getInfoStudent(){
+
+    }
+    public void deleteStudent(){
+
+    }
+}
+
+
+
+
+
