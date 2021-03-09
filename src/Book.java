@@ -2,7 +2,7 @@
 
 public class Book
 {
-    private final String bookName;
+    private String bookName;
     private String pages;
     private String author;
 
@@ -17,7 +17,7 @@ public class Book
 
     }
         public String getBookData() { // lets try to imp
-        return this.bookName + this.author + this.pages;
+            return bookName+ " " + author + "(" + pages + ")" ;
 
 
     }
@@ -45,7 +45,10 @@ public class Book
     public void addBook() {
 
 }
-public void updateBook(){
+public void updateBook(String bookName, String author, String pages){
+    this.bookName = bookName;
+    this.author = author;
+    this.pages = pages;
 
 }
 public void getInfoBook(){

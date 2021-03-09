@@ -1,11 +1,11 @@
 
 
 public class Student {
-    private final String lastName;
-    private int age;
+    private String lastName;
+    private String age;
     private String firstName;
 
-    public Student(String firstNamename, String lastName,int age) {
+    public Student(String firstNamename, String lastName,String age) {
         this.age = age;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,11 +18,11 @@ public class Student {
         return lastName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -37,7 +37,11 @@ public class Student {
 
 
 
-    public void updateStudent(){
+    public void updateStudent(String firstName, String lastName, String age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+
 
     }
     public void getInfoStudent(){
