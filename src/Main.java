@@ -69,10 +69,10 @@ public class Main {
                         Student stud = new Student(fN, lN, age1);
                         students.add(stud);
                     }
-                    Thread.sleep(1000);
+                    Thread.sleep(400);
                     System.out.print("Back to the menu  \n " +
                             "...");
-                    Thread.sleep(1000);
+                    Thread.sleep(400);
                     System.out.println("\n");
                     break;
 
@@ -86,12 +86,14 @@ public class Main {
                         if (upd == 1) {
                             System.out.println("You have  " + books.size() + "added");
                             int count = 0;
-                            //System.out.println(Books.toString());
-                            for (int j = 0; j < books.size(); j++) {  // to loop the elemetns and cound them
+                            for (int j = 0; j < books.size(); j++) {                 // to loop the elemetns and cound them
                                 Book bookdata = (Book) books.get(j);
+                                count++;                                             // counts the amout of objects in Books
                                 System.out.println(books.toString());
-                                count++;// counts the amout of objects in Books
-
+                                System.out.println(" choose index you want to replace , respect order starts with 0");
+                                int replace1 = scannerVariable.nextInt();            // get index of the Object in Arraylist
+                                int x = replace1;
+                                books.set(replace1,books);// changed the obect to books (bookdata before) // didnt worked out
                                 Scanner bN = new Scanner(System.in);
                                 System.out.println("New book name : ");
                                 String bookName = bN.nextLine();
@@ -100,18 +102,22 @@ public class Main {
                                 System.out.println("new pages : ");
                                 String pages = bN.nextLine();
                                 System.out.println("changes will be done !");
-                                bookdata.updateBook(bookName, author, pages); // ovrwirtes the Objects that were in the list
-
-                                Thread.sleep(1000);
+                                bookdata.updateBook(bookName, author, pages);       // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects
+                                                                                     // tried to put the books.set it down here
+                                Thread.sleep(400);
+                                break;
                             }
                         } else {
-                            System.out.println("You have  " + books.size() + "added");
+                            System.out.println("You have  " + students.size() + "added");
                             int count = 0;
-                            //System.out.println(Books.toString());
                             for (int j = 0; j < students.size(); j++) {
                                 Student studData = (Student) students.get(j);
-                                System.out.println(studData.toString());
                                 count++;
+                                System.out.println(students.toString());
+                                System.out.println(" choose index you want to replace, respect order starts with 0");
+                                int replace = scannerVariable.nextInt();        // get index of the Object in Arraylist
+                                int x = replace;
+                                students.set(replace,studData);                 // choose the right index ,
                                 Scanner sN = new Scanner(System.in);
                                 System.out.println("New firstName : ");
                                 String firstName = sN.nextLine();
@@ -159,19 +165,28 @@ public class Main {
                         System.out.println(books.toString());
                         System.out.println("which one do you want to delete: " +
                                             "respect order of objects start by 0");
-                        int delete = scannerVariable.nextInt();// created scanner to get some input from user, if Object contains userInput it should delete
+                        int delete = scannerVariable.nextInt();                // created scanner to get some input from user, if Object contains userInput it should delete
                         int x= delete;
                         books.remove(x);
                         System.out.print("I will delete it for you\n");
+                        Thread.sleep(500);
 
 
                     }else {
-                            System.out.println(students);
-                            System.out.println("Which studendo you want to delete?");
-                            students.clear();
-                            System.out.print("I will delete him for you  \n ");
+                        for (int j = 0; j < students.size(); j++) {  //
+                            Student studdata = (Student) students.get(j);
+                            count++;
                         }
+                        System.out.println(books.toString());
+                        System.out.println("which one do you want to delete: " +
+                                "respect order of objects start by 0");
+                        int delete = scannerVariable.nextInt();// created scanner to get some input from user, if Object contains userInput it should delete
+                        int x= delete;
+                        students.remove(x);
+                        System.out.print("I will delete him/her for you\n");
 
+                        }
+                        Thread.sleep(500);
 
                     break;
 
