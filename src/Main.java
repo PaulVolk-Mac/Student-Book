@@ -33,8 +33,13 @@ public class Main {
             }
             switch (number) {
                 case 1:
-                    System.out.println("What do you want to create ? Book  = 1 / Student =  2 ");
-                    int buch = scannerVariable.nextInt();
+                    int buch = 0;
+                    try {
+                        System.out.println("What do you want to create ? Book  = 1 / Student =  2 ");
+                         buch = scannerVariable.nextInt();
+                    }catch (Exception e){
+                        System.out.println("type in a number ");
+                    }
                     if (buch == 1) {
                         Scanner keyboard = new Scanner(System.in);
                         System.out.println(" Enter book name");
@@ -95,9 +100,9 @@ public class Main {
                                 System.out.println("new pages : ");
                                 String pages = bN.nextLine();
                                 System.out.println("changes will be done !");
-                                bookdata.updateBook(bookName, author, pages); // ovrwirtes the Objects that were in the list // cant choose the right one
+                                bookdata.updateBook(bookName, author, pages); // ovrwirtes the Objects that were in the list
 
-                                Thread.sleep(2000);
+                                Thread.sleep(1000);
                             }
                         } else {
                             System.out.println("You have  " + books.size() + "added");
@@ -116,7 +121,7 @@ public class Main {
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
                                 studData.updateStudent(firstName, lastName, age);
-                                Thread.sleep(2000);
+                                Thread.sleep(1000);
                                 break;
                             }
                         }
@@ -147,25 +152,20 @@ public class Main {
                     int wasloeschen = scannerVariable.nextInt();
                     if (wasloeschen == 1) {
                     // tried to get a specific element from list
-                    /*for (int j = 0; j < books.size(); j++) {  //
+                        for (int j = 0; j < books.size(); j++) {  //
                         Book bookdata = (Book) books.get(j);
-                        System.out.println(books.toString());
                         count++;
-
-                            System.out.println(books.toString());
-                            System.out.println("which one do you want to delete: ");
-                            String delete = scannerVariable.nextLine();                 // created scanner to get some input from user, if Object contains userInput it should delete
-                            for (Iterator<String> iterator = books.iterator(); iterator.hasNext(); ) {
-                                String bookdatas = iterator.next();
-                                if (bookdatas.contains(delete)) {
-                                    iterator.remove();
-                                }
-                            }
-                        */
-                            System.out.print("I will delete it for you\n");
+                        }
+                        System.out.println(books.toString());
+                        System.out.println("which one do you want to delete: " +
+                                            "respect order of objects start by 0");
+                        int delete = scannerVariable.nextInt();// created scanner to get some input from user, if Object contains userInput it should delete
+                        int x= delete;
+                        books.remove(x);
+                        System.out.print("I will delete it for you\n");
 
 
-                        } else {
+                    }else {
                             System.out.println(students);
                             System.out.println("Which studendo you want to delete?");
                             students.clear();
