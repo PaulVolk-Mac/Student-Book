@@ -17,7 +17,7 @@ public class Main {
         while (i == 1) { // run the application until case 5 happens
             System.out.println("What do you want to do today ? (hint: start with creating something)  \n" +
                     "1 = I want to create a Book / Student \n " +
-                    "2 = I watnt o update a Book / Student \n " +
+                    "2 = I want to update a Book / Student \n " +
                     "3 = I need  information about a Book /Student \n " +
                     "4 = I want to delete a Book / Student \n " +
                     "5 = I want to Exit \n");
@@ -84,7 +84,7 @@ public class Main {
                         System.out.print("Pls create something first ;)");
                     } else {
                         System.out.println("Seems like you want to update a Book/Student");
-                        System.out.println("1 Book and 2 is Student");
+                        System.out.println("1 for Book and 2 for Student");
                         int upd = scannerVariable.nextInt();
                         if (upd == 1) {
                             System.out.println("You have  " + books.size() + "added");
@@ -157,10 +157,12 @@ public class Main {
                         int IBS = scannerVariable.nextInt();
                         if (IBS == 1) {
                             // ausgabe von Object
+                            System.out.println("you have " + books.size() +" added into your book DataBase" );
                             System.out.println(books.toString());
 
 
                         } else {
+                            System.out.println("you have " + students.size() +" added into your student DataBase" );
                             System.out.println(students.toString());
                         }
                     }
@@ -182,7 +184,7 @@ public class Main {
                                             "respect order of objects start by 0");
                         int delete = scannerVariable.nextInt();                // created scanner to get some input from user, if Object contains userInput it should delete
                         int x= delete;
-                        books.remove(x);
+                        books.remove(x);  // asked for the index that has to be removed , and removed it
                         System.out.print("I will delete it for you\n");
                         Thread.sleep(500);
 
