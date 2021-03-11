@@ -12,7 +12,7 @@ public class Student {
     }
     @Override
     public String toString() {
-        return firstName + " " + lastName + "(" + age + ")";
+        return "firstname " + firstName + " lastname " + lastName + " ages (" + age + ")";
     }
     public String getLastname() {
         return lastName;

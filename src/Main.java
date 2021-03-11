@@ -54,7 +54,8 @@ public class Main {
                         System.out.println(" Your Book name is " + bN + " written by " + aut + " and has " + page + " pages");
                         Book book = new Book(bN, aut, page);
                         books.add(book); //
-                    } else {
+                    }
+                    if (buch == 2) {
                         Scanner keyboard = new Scanner(System.in);
                         System.out.println(" Enter first name");
                         String fN = keyboard.nextLine();
@@ -69,6 +70,8 @@ public class Main {
                         Student stud = new Student(fN, lN, age1);
                         students.add(stud);
                     }
+
+
                     Thread.sleep(400);
                     System.out.print("Back to the menu  \n " +
                             "...");
@@ -92,21 +95,29 @@ public class Main {
                                 System.out.println(books.toString());
                                 System.out.println(" choose index you want to replace , respect order starts with 0");
                                 int replace1 = scannerVariable.nextInt();            // get index of the Object in Arraylist
-                                int x = replace1;
-                                books.set(replace1,books);// changed the obect to books (bookdata before) // didnt worked out
-                                Scanner bN = new Scanner(System.in);
-                                System.out.println("New book name : ");
-                                String bookName = bN.nextLine();
-                                System.out.println("new author : ");
-                                String author = bN.nextLine();
-                                System.out.println("new pages : ");
-                                String pages = bN.nextLine();
-                                System.out.println("changes will be done !");
-                                bookdata.updateBook(bookName, author, pages);       // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects
-                                                                                     // tried to put the books.set it down here
-                                Thread.sleep(400);
+                                int x = replace1; // changed the obect to books (bookdata before) // didnt worked out
+
+                                String bookName;
+                                String author;
+                                String pages;
+                                    Scanner bN = new Scanner(System.in);
+                                    System.out.println("New book name : ");
+                                    bookName = bN.nextLine();
+                                    System.out.println("new author : ");
+                                    author = bN.nextLine();
+                                    System.out.println("new pages : ");
+                                    pages = bN.nextLine();
+                                    System.out.println("changes will be done !"); // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects// tried to put the books.set it down here
+                                    Book replaceBook = new Book(bookName,author,pages);  // created a new object that replace the object that i choose in the books.set method
+                                    replaceBook.updateBook(bookName, author, pages);
+                                    books.set(replace1,replaceBook);
+                                    break;
+                                }
+
+
+                            Thread.sleep(400);
                                 break;
-                            }
+
                         } else {
                             System.out.println("You have  " + students.size() + "added");
                             int count = 0;
@@ -117,7 +128,7 @@ public class Main {
                                 System.out.println(" choose index you want to replace, respect order starts with 0");
                                 int replace = scannerVariable.nextInt();        // get index of the Object in Arraylist
                                 int x = replace;
-                                students.set(replace,studData);                 // choose the right index ,
+                                               // choose the right index ,
                                 Scanner sN = new Scanner(System.in);
                                 System.out.println("New firstName : ");
                                 String firstName = sN.nextLine();
@@ -126,12 +137,15 @@ public class Main {
                                 System.out.println("new age : ");
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                studData.updateStudent(firstName, lastName, age);
-                                Thread.sleep(1000);
+                                Student replaceStud = new Student(firstName,lastName,age);
+                                replaceStud.updateStudent(firstName, lastName, age);
+                                books.set(replace,replaceStud);
+
                                 break;
                             }
                         }
                     }
+                    Thread.sleep(1000);
                     break;
                 case 3:
                     if (books.isEmpty() && students.isEmpty()) {
@@ -193,6 +207,9 @@ public class Main {
                 case 5:
                     System.out.println("You will leave the application");
                     i++;
+                    break;
+                default:
+
             }
         }
 
