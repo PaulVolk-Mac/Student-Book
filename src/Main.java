@@ -166,12 +166,13 @@ public class Main {
                     }
                     break;
                 case 4:
-                    System.out.println("You want to delete a Book/Student \n" + " 1 = Buch und 2 = Student");
-                    System.out.println("You have  " + books.size() + "added");
+                    System.out.println("You want to delete a Book/Student \n" + " 1 = Book und 2 = Student");
+
                     int count = 0;
                     int wasloeschen = scannerVariable.nextInt();
                     if (wasloeschen == 1) {
                     // tried to get a specific element from list
+                        System.out.println("You have  " + books.size() + "added");
                         for (int j = 0; j < books.size(); j++) {  //
                         Book bookdata = (Book) books.get(j);
                         count++;
@@ -191,7 +192,7 @@ public class Main {
                             Student studdata = (Student) students.get(j);
                             count++;
                         }
-                        System.out.println(books.toString());
+                        System.out.println(students.toString());
                         System.out.println("which one do you want to delete: " +
                                 "respect order of objects start by 0");
                         int delete = scannerVariable.nextInt();// created scanner to get some input from user, if Object contains userInput it should delete
