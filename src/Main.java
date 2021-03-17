@@ -11,7 +11,6 @@ public class Main {
         ArrayList books = new ArrayList<Book>();  // list where books be saved // not sure about : ** new ArrayList<Book>() should be <String> **
         ArrayList students = new ArrayList<Student>(); // list where students be saved
 
-
         int i = 1;
 
         while (i == 1) { // run the application until case 5 happens
@@ -67,7 +66,7 @@ public class Main {
                         String age1 = keyboard.nextLine();
 
                         System.out.println(" your name is " + fN + lN + "," + age1 + " years old");
-                        Student stud = new Student(fN, lN, age1);
+                        Student stud = new Student(fN,lN,age1);
                         students.add(stud);
                     }
 
@@ -107,10 +106,10 @@ public class Main {
                                     author = bN.nextLine();
                                     System.out.println("new pages : ");
                                     pages = bN.nextLine();
-                                    System.out.println("changes will be done !"); // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects// tried to put the books.set it down here
+                                    System.out.println("changes will be done !"); // old commentar // i think this doubles the work // it changes both objects
                                     Book replaceBook = new Book(bookName,author,pages);  // created a new object that replace the object that i choose in the books.set method
                                     replaceBook.updateBook(bookName, author, pages);
-                                    books.set(replace1,replaceBook);
+                                    books.set(replace1,replaceBook); // ovrwirtes the Objects that were in the list
                                     break;
                                 }
 
