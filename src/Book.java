@@ -2,53 +2,59 @@
 
 public class Book
 {
-    private String bookName;
-    private String pages;
-    private String author;
+    public Book(){
 
-    public Book(String bookName, String author, String pages) {
-        this.pages = pages;
-        this.bookName = bookName;
-        this.author = author;
+    }
+
+
+    public Book(String title, String id) {
+        this.title = title;
+        this.id = id;
+
     }
     @Override
     public String toString() {
-        return bookName+ " " + author + "(" + pages + ")" ;
+        return title + " " + "(" + id + ")";
 
     }
+    private String title;
+    private String id;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
+
+
+
+
+
         public String getBookData() { // lets try to imp
-            return bookName+ " " + author + "(" + pages + ")" ;
+            return title+ " " +   "(" + id + ")" ;
 
 
     }
 
-    public String getBookName() {
-        return bookName;
-    }
 
-    public String getPages() {
-        return pages;
-    }
 
-    public void setPages(String pages) {
-        this.pages = pages;
-    }
 
-    public String getAuthor() {
-        return author;
-    }
+public void updateBook(String title, String id){
+    this.title = title;
+    this.id = id;
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void addBook() {
-
-}
-public void updateBook(String bookName, String author, String pages){
-    this.bookName = bookName;
-    this.author = author;
-    this.pages = pages;
 
 }
 public void getInfoBook(){

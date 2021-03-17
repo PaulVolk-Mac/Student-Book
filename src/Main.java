@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-
+import java.util.Set;
 
 
 public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        ArrayList books = new ArrayList<Book>();  // list where books be saved // not sure about : ** new ArrayList<Book>() should be <String> **
+        ArrayList books = new ArrayList<Book>();  // list where books be saved //
         ArrayList students = new ArrayList<Student>(); // list where students be saved
 
 
@@ -42,17 +42,14 @@ public class Main {
                     }
                     if (buch == 1) {
                         Scanner keyboard = new Scanner(System.in);
-                        System.out.println(" Enter book name");
-                        String bN = keyboard.nextLine();
+                        System.out.println(" Enter book title");
+                        String title = keyboard.nextLine();
 
-                        System.out.println("Enter name of the author");
-                        String aut = keyboard.nextLine();
+                        System.out.println("enter book id?");
+                        String iD = keyboard.nextLine();
 
-                        System.out.println("how many pages does the book have ?");
-                        String page = keyboard.nextLine();
-
-                        System.out.println(" Your Book name is " + bN + " written by " + aut + " and has " + page + " pages");
-                        Book book = new Book(bN, aut, page);
+                        System.out.println(" Your Book title is " + title + "with the id " + iD);
+                        Book book = new Book(title,iD);
                         books.add(book); //
                     }
                     if (buch == 2) {
@@ -63,11 +60,11 @@ public class Main {
                         System.out.println("Enter last name");
                         String lN = keyboard.nextLine();
 
-                        System.out.println("how old are you ?");
-                        String age1 = keyboard.nextLine();
+                        System.out.println("enter your iD ?");
+                        String iD = keyboard.nextLine();
 
-                        System.out.println(" your name is " + fN + lN + "," + age1 + " years old");
-                        Student stud = new Student(fN, lN, age1);
+                        System.out.println(" your name is " + fN + lN + "," + iD + " years old");
+                        Student stud = new Student(fN, lN, iD, (Set<Book>) new Book());  // cast things in object
                         students.add(stud);
                     }
 
@@ -89,7 +86,7 @@ public class Main {
                         if (upd == 1) {
                             System.out.println("You have  " + books.size() + "added");
                             int count = 0;
-                            for (int j = 0; j < books.size(); j++) {                 // to loop the elemetns and cound them
+                            for (int j = 0; j < books.size(); j++) {                 // to loop the elemetns and count them
                                 Book bookdata = (Book) books.get(j);
                                 count++;                                             // counts the amout of objects in Books
                                 System.out.println(books.toString());
@@ -98,18 +95,15 @@ public class Main {
                                 int x = replace1; // changed the obect to books (bookdata before) // didnt worked out
 
                                 String bookName;
-                                String author;
-                                String pages;
+                                String newId;
                                     Scanner bN = new Scanner(System.in);
-                                    System.out.println("New book name : ");
+                                    System.out.println("New book title : ");
                                     bookName = bN.nextLine();
-                                    System.out.println("new author : ");
-                                    author = bN.nextLine();
-                                    System.out.println("new pages : ");
-                                    pages = bN.nextLine();
+                                    System.out.println("new iD : ");
+                                    newId = bN.nextLine();
                                     System.out.println("changes will be done !"); // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects// tried to put the books.set it down here
-                                    Book replaceBook = new Book(bookName,author,pages);  // created a new object that replace the object that i choose in the books.set method
-                                    replaceBook.updateBook(bookName, author, pages);
+                                    Book replaceBook = new Book(bookName,newId);  // created a new object that replace the object that i choose in the books.set method
+                                    replaceBook.updateBook(bookName, newId);
                                     books.set(replace1,replaceBook);
                                     break;
                                 }
@@ -139,7 +133,7 @@ public class Main {
                                 System.out.println("changes will be done !");
                                 Student replaceStud = new Student(firstName,lastName,age);
                                 replaceStud.updateStudent(firstName, lastName, age);
-                                books.set(replace,replaceStud);
+                                students.set(replace,replaceStud);
 
                                 break;
                             }

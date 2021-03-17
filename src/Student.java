@@ -1,29 +1,30 @@
-
+import java.util.Set;
 
 public class Student {
+    private String iD;
     private String lastName;
-    private String age;
     private String firstName;
 
-    public Student(String firstNamename, String lastName,String age) {
-        this.age = age;
+    public Student(String iD,String firstName, String lastName, Set<Book>books) {
+        this.iD = iD;
         this.firstName = firstName;
         this.lastName = lastName;
     }
     @Override
     public String toString() {
-        return "firstname " + firstName + " lastname " + lastName + " ages (" + age + ")";
+        return "firstname " + firstName + " lastname " + lastName + " iD (" + iD + ")";
     }
+
     public String getLastname() {
         return lastName;
     }
 
-    public String getAge() {
-        return age;
+    public String getiD() {
+        return iD;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setAge(String iD) {
+        this.iD = iD;
     }
 
     public String getFirstName() {
@@ -37,10 +38,10 @@ public class Student {
 
 
 
-    public void updateStudent(String firstName, String lastName, String age){
+    public void updateStudent(String firstName, String lastName, String iD){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+        this.iD = iD;
 
 
     }
