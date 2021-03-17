@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e06cdf-810b-4c91-a0bc-5ecf4abfc88d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +48,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -39,16 +57,9 @@
       <recent name="C:\Users\mrvol\IdeaProjects\ProjektIlia\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main.java">
     <configuration name="Book" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Book" />
-      <module name="ProjektIlia" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjektIlia" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -57,6 +68,15 @@
     <configuration name="Main1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main1" />
       <module name="ProjektIlia" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main.java" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Student-Book" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -70,7 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main.java" />
         <item itemvalue="Application.Main1" />
         <item itemvalue="Application.object_input" />
         <item itemvalue="Application.Book" />
@@ -87,6 +107,17 @@
       <updated>1607415537765</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="i added a try catch example , will build it in in most of the scanner things, added a update method , i can change one created object, but if there is more then 1 object in the list, i have to find out how to choose the right one." />
@@ -107,6 +138,10 @@
     </state>
     <state x="1020" y="299" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440/2560.0.1920.1080/4480.0.1920.1080@0.0.2560.1440" timestamp="1615201233272" />
     <state x="3325" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1440/2560.0.1920.1080/4480.0.1920.1080@2560.0.1920.1080" timestamp="1614596852478" />
+    <state x="1009" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1615976909523">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1009" y="522" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1615976909523" />
     <state x="987" y="355" key="FileChooserDialogImpl" timestamp="1614855327293">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -140,10 +175,11 @@
     <state width="1257" height="205" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1920.1080/4480.0.1920.1080@0.0.2560.1440" timestamp="1615805294354" />
     <state width="937" height="191" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1920.1080/4480.0.1920.1080@2560.0.1920.1080" timestamp="1615456609182" />
     <state width="1877" height="286" key="GridCell.Tab.0.right/1920.-90.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1607677134844" />
-    <state x="781" y="365" key="SettingsEditor" timestamp="1615203973701">
+    <state x="781" y="365" key="SettingsEditor" timestamp="1615976827070">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="781" y="365" key="SettingsEditor/0.0.2560.1440/2560.0.1920.1080/4480.0.1920.1080@0.0.2560.1440" timestamp="1615203973701" />
+    <state x="781" y="365" key="SettingsEditor/0.0.2560.1440/2560.0.1920.1080@0.0.2560.1440" timestamp="1615976827070" />
     <state x="3291" y="346" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1615210608637">
       <screen x="2560" y="0" width="1920" height="1080" />
     </state>
