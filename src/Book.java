@@ -1,7 +1,9 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
-
-public class Book
-{
+public class Book {
     private String bookName;
     private String pages;
     private String author;
@@ -11,23 +13,21 @@ public class Book
         this.bookName = bookName;
         this.author = author;
     }
-    @Override
+
     public String toString() {
-        return bookName+ " " + author + "(" + pages + ")" ;
-
+        return this.bookName + " " + this.author + "(" + this.pages + ")";
     }
-        public String getBookData() { // lets try to imp
-            return bookName+ " " + author + "(" + pages + ")" ;
 
-
+    public String getBookData() {
+        return this.bookName + " " + this.author + "(" + this.pages + ")";
     }
 
     public String getBookName() {
-        return bookName;
+        return this.bookName;
     }
 
     public String getPages() {
-        return pages;
+        return this.pages;
     }
 
     public void setPages(String pages) {
@@ -35,7 +35,7 @@ public class Book
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public void setAuthor(String author) {
@@ -43,18 +43,17 @@ public class Book
     }
 
     public void addBook() {
-
-}
-public void updateBook(String bookName, String author, String pages){
-    this.bookName = bookName;
-    this.author = author;
-    this.pages = pages;
-
-}
-public void getInfoBook(){
-
-}
-public void deleteBook(){
-
-}
     }
+
+    public void updateBook(String bookName, String author, String pages) {
+        this.bookName = bookName;
+        this.author = author;
+        this.pages = pages;
+    }
+
+    public void getInfoBook() {
+    }
+
+    public void deleteBook() {
+    }
+}
