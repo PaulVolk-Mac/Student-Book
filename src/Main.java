@@ -131,7 +131,7 @@ public class Main {
                                 System.out.println("new age : ");
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Student replaceStud = new Student(firstName,lastName,age);
+                                Student replaceStud = new Student(firstName,lastName,age,null); // still no idea what to do here
                                 replaceStud.updateStudent(firstName, lastName, age);
                                 students.set(replace,replaceStud);
 
