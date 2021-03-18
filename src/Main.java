@@ -64,7 +64,7 @@ public class Main {
                         String iD = keyboard.nextLine();
 
                         System.out.println(" your name is " + fN + lN + "," + iD + " years old");
-                        Student stud = new Student(fN, lN, iD);  // cast things in object
+                        Student stud = new Student(fN, lN, iD, (Set<Book>) new Book());  // cast things in object
                         students.add(stud);
                     }
 
@@ -131,7 +131,7 @@ public class Main {
                                 System.out.println("new age : ");
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Student replaceStud = new Student(firstName,lastName,age); // still no idea what to do here
+                                Student replaceStud = new Student(firstName,lastName,age,null); // still no idea what to do here
                                 replaceStud.updateStudent(firstName, lastName, age);
                                 students.set(replace,replaceStud);
 
