@@ -86,13 +86,13 @@ public class Main {
                         if (upd == 1) {
                             System.out.println("You have  " + books.size() + "added");
                             int count = 0;
-                            for (int j = 0; j < books.size(); j++) {                 // to loop the elemetns and count them
+                            for (int j = 0; j < books.size(); j++) {                 // to loop the elements and count them
                                 Book bookdata = (Book) books.get(j);
-                                count++;                                             // counts the amout of objects in Books
+                                count++;                                             // counts the amount of objects in Books
                                 System.out.println(books.toString());
                                 System.out.println(" choose index you want to replace , respect order starts with 0");
                                 int replace1 = scannerVariable.nextInt();            // get index of the Object in Arraylist
-                                int x = replace1; // changed the obect to books (bookdata before) // didnt worked out
+                                int x = replace1; // changed the obect to books (bookdata before)
 
                                 String bookName;
                                 String newId;
@@ -101,7 +101,7 @@ public class Main {
                                     bookName = bN.nextLine();
                                     System.out.println("new iD : ");
                                     newId = bN.nextLine();
-                                    System.out.println("changes will be done !"); // ovrwirtes the Objects that were in the list // i think this doubles the work // it changes both objects// tried to put the books.set it down here
+                                    System.out.println("changes will be done !"); // overwirtes the Objects that were in the list
                                     Book replaceBook = new Book(bookName,newId);  // created a new object that replace the object that i choose in the books.set method
                                     replaceBook.updateBook(bookName, newId);
                                     books.set(replace1,replaceBook);
@@ -131,7 +131,7 @@ public class Main {
                                 System.out.println("new age : ");
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Student replaceStud = new Student(firstName,lastName,age); // still no idea what to do here
+                                Student replaceStud = new Student(firstName,lastName,age);
                                 replaceStud.updateStudent(firstName, lastName, age);
                                 students.set(replace,replaceStud);
 

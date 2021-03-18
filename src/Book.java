@@ -1,13 +1,14 @@
 
 
-public class Book
-{
+public class Book {
+        private String title;
+        private String id;
+
     public Book(){
 
     }
 
-
-    public Book(String title, String id) {
+    public Book(String title, String id) { // 2 attributes now
         this.title = title;
         this.id = id;
 
@@ -17,8 +18,7 @@ public class Book
         return title + " " + "(" + id + ")";
 
     }
-    private String title;
-    private String id;
+
 
     public String getTitle() {
         return title;
