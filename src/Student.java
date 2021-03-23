@@ -1,11 +1,28 @@
+import java.util.Objects;
 import java.util.Set;
 
-public class Student {
+
+public class Student extends Book{
     private String iD;
     private String lastName;
     private String firstName;
 
-    public Student(String iD,String firstName, String lastName) { // need to add one attribute
+    @Override
+    public boolean equals(Object o) {   // auto generate the equals and hashcodes
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student student = (Student) o;
+        return Objects.equals(getiD(), student.getiD()) &&
+                Objects.equals(lastName, student.lastName) &&
+                Objects.equals(getFirstName(), student.getFirstName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getiD(), lastName, getFirstName());
+    }
+
+    public Student(String iD, String firstName, String lastName, Set<Book> books) { // need to add one attribute
         this.iD = iD;
         this.firstName = firstName;
         this.lastName = lastName;

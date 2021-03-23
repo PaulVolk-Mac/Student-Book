@@ -1,10 +1,11 @@
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
 
-public class Main {
+public class Main  {
 
 
     public static void main(String[] args) throws InterruptedException {
@@ -131,7 +132,7 @@ public class Main {
                                 System.out.println("new age : ");
                                 String age = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Student replaceStud = new Student(firstName,lastName,age);
+                                Student replaceStud = new Student(firstName,lastName,age, Book <book>);
                                 replaceStud.updateStudent(firstName, lastName, age);
                                 students.set(replace,replaceStud);
 
