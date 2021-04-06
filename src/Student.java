@@ -1,12 +1,32 @@
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.ArrayList;
 
 
 public class Student extends Book{
+
+
+    //Attribute
     private String iD;
     private String lastName;
+    Book book;
+    ArrayList<Book> books = new ArrayList<Book>();
+
+
+
+
     private String firstName;
 
+    public  Student(String iD, String firstName, String lastName, Book book,Set<Book>books) {
+        this.iD = iD;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.book = book;
+        this.books = new ArrayList<Book>((Collection<? extends Book>) books);
+
+
+
+    }
+    //Methods
     @Override
     public boolean equals(Object o) {   // auto generate the equals and hashcodes
         if (this == o) return true;
@@ -22,15 +42,17 @@ public class Student extends Book{
         return Objects.hash(getiD(), lastName, getFirstName());
     }
 
-    public Student(String iD, String firstName, String lastName, Set<Book> books) { // need to add one attribute
-        this.iD = iD;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
     @Override
     public String toString() {
-        return "firstname " + firstName + " lastname " + lastName + " iD (" + iD + ")";
+        return "Student{" +
+                "iD='" + iD + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", book=" + book +
+                '}';
     }
+
+
 
     public String getLastname() {
         return lastName;

@@ -1,16 +1,17 @@
-import java.awt.print.Book;
+
+import java.util.*;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
+
+public class Main {
 
 
-public class Main  {
 
 
     public static void main(String[] args) throws InterruptedException {
         ArrayList books = new ArrayList<Book>();  // list where books be saved //
         ArrayList students = new ArrayList<Student>(); // list where students be saved
+
+
 
 
         int i = 1;
@@ -34,26 +35,7 @@ public class Main  {
             }
             switch (number) {
                 case 1:
-                    int buch = 0;
-                    try {
-                        System.out.println("What do you want to create ? Book  = 1 / Student =  2 ");
-                         buch = scannerVariable.nextInt();
-                    }catch (Exception e){
-                        System.out.println("type in a number ");
-                    }
-                    if (buch == 1) {
-                        Scanner keyboard = new Scanner(System.in);
-                        System.out.println(" Enter book title");
-                        String title = keyboard.nextLine();
-
-                        System.out.println("enter book id?");
-                        String iD = keyboard.nextLine();
-
-                        System.out.println(" Your Book title is " + title + "with the id " + iD);
-                        Book book = new Book(title,iD);
-                        books.add(book); //
-                    }
-                    if (buch == 2) {
+                    System.out.println("You want to create a Student");
                         Scanner keyboard = new Scanner(System.in);
                         System.out.println(" Enter first name");
                         String fN = keyboard.nextLine();
@@ -64,13 +46,22 @@ public class Main  {
                         System.out.println("enter your iD ?");
                         String iD = keyboard.nextLine();
 
-                        System.out.println(" your name is " + fN + lN + "," + iD + " years old");
-                        Student stud = new Student(fN, lN, iD);  // cast things in object
+                        System.out.println(" Enter book title");
+                        String title = keyboard.nextLine();
+
+                        System.out.println("enter book id?");
+                        String bookId = keyboard.nextLine();
+
+                        System.out.println(" your name is " + fN + lN + "," + iD + " is your id " + "you got the book: ");
+                        System.out.println(" " + title + " with the id " + bookId);
+                        Book book = new Book(title,bookId);
+                        books.add(book);
+                        Student stud = new Student(fN, lN, iD,book,Set.copyOf(books));  // cast things in object
                         students.add(stud);
-                    }
 
+                        stud.book.toString();
 
-                    Thread.sleep(400);
+                        Thread.sleep(400);
                     System.out.print("Back to the menu  \n " +
                             "...");
                     Thread.sleep(400);
@@ -129,11 +120,17 @@ public class Main  {
                                 String firstName = sN.nextLine();
                                 System.out.println("new lastName : ");
                                 String lastName = sN.nextLine();
-                                System.out.println("new age : ");
-                                String age = sN.nextLine();
+                                System.out.println("new Id : ");
+                                String newStudentId = sN.nextLine();
+                                System.out.println(" Enter new book title");
+                                String newTitle = sN.nextLine();
+
+                                System.out.println("enter new book id?");
+                                String newBookId = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Student replaceStud = new Student(firstName,lastName,age, Book <book>);
-                                replaceStud.updateStudent(firstName, lastName, age);
+                                Book newBook = new Book(newTitle,newBookId);
+                                Student replaceStud = new Student(firstName,lastName,newStudentId,newBook,Set.copyOf(books));
+                                replaceStud.updateStudent(firstName, lastName, newStudentId);
                                 students.set(replace,replaceStud);
 
                                 break;
@@ -158,7 +155,8 @@ public class Main  {
 
                         } else {
                             System.out.println("you have " + students.size() +" added into your student DataBase" );
-                            System.out.println(students.toString());
+                            System.out.println(students.toString() );
+
                         }
                     }
                     break;
@@ -214,43 +212,7 @@ public class Main  {
 
         }
 
-       /* public static void addBook() {
 
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println(" Enter book name");
-                String bN = keyboard.nextLine();
-
-                System.out.println("Enter name of the author");
-                String aut = keyboard.nextLine();
-
-                System.out.println("how many pages does the book have ?");
-                int page = keyboard.nextInt();
-
-                System.out.println(" Your Book name is " + bN + "written by" + aut + "and has" + page + " pages");
-                Book book = new Book(bN,aut,page);
-                Books.add(book);
-
-
-
-
-        public static String addStudent() {
-
-
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println(" Enter first name");
-                String fN = keyboard.nextLine();
-
-                System.out.println("Enter last name");
-                String lN = keyboard.nextLine();
-
-                System.out.println("how old are you ?");
-                int age1 = keyboard.nextInt();
-
-                System.out.println(" your name is " + fN + lN + "," + age1 + " years old");
-
-                return fN + lN + age1;
-
-        */
     }
 
 
