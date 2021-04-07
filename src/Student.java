@@ -10,13 +10,9 @@ public class Student extends Book{
     private String lastName;
     Book book;
     ArrayList<Book> books = new ArrayList<Book>();
-
-
-
-
     private String firstName;
 
-    public  Student(String iD, String firstName, String lastName, Book book,Set<Book>books) {
+    public  Student(String iD, String firstName, String lastName, Book book,Set<Book>books) { // set Book to Parameter
         this.iD = iD;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -77,12 +73,19 @@ public class Student extends Book{
 
 
 
-    public void updateStudent(String firstName, String lastName, String iD){
+    public void setStudentOnly(String firstName, String lastName, String iD){
         this.firstName = firstName;
         this.lastName = lastName;
         this.iD = iD;
 
 
+    }
+    public void setStudent(String iD, String firstName, String lastName, Book book,Set<Book>books) { // set Book to Parameter
+        this.iD = iD;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.book = book;
+        this.books = new ArrayList<Book>((Collection<? extends Book>) books);
     }
     public void getInfoStudent(){
 

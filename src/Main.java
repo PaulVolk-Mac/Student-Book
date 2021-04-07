@@ -95,7 +95,7 @@ public class Main {
                                     newId = bN.nextLine();
                                     System.out.println("changes will be done !"); // overwirtes the Objects that were in the list
                                     Book replaceBook = new Book(bookName,newId);  // created a new object that replace the object that i choose in the books.set method
-                                    replaceBook.updateBook(bookName, newId);
+                                    replaceBook.setBook(bookName, newId);
                                     books.set(replace1,replaceBook);
                                     break;
                                 }
@@ -128,9 +128,9 @@ public class Main {
                                 System.out.println("enter new book id?");
                                 String newBookId = sN.nextLine();
                                 System.out.println("changes will be done !");
-                                Book newBook = new Book(newTitle,newBookId);
+                                Book newBook = new Book(newTitle,newBookId);     // create object that i can set it into the Student Object
                                 Student replaceStud = new Student(firstName,lastName,newStudentId,newBook,Set.copyOf(books));
-                                replaceStud.updateStudent(firstName, lastName, newStudentId);
+                                replaceStud.setStudentOnly(firstName, lastName, newStudentId);
                                 students.set(replace,replaceStud);
 
                                 break;
@@ -155,6 +155,7 @@ public class Main {
 
                         } else {
                             System.out.println("you have " + students.size() +" added into your student DataBase" );
+
                             System.out.println(students.toString() );
 
                         }

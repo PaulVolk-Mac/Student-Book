@@ -13,7 +13,7 @@ public class Book {
 
     }
 
-    public Book(String bookTitle, String bookId) { // 2 attributes now
+    public Book(String bookTitle, String bookId) { // 2 attributes now // had wrong attribute in parameter
         this.bookTitle = bookTitle;
         this.bookId = bookId;
 
@@ -62,7 +62,7 @@ public class Book {
             return bookTitle+ " " +   "(" + bookId+ ")" ;
     }
 
-    public void updateBook(String title, String id){
+    public void setBook(String title, String id){
     this.bookTitle = bookTitle;
     this.bookId = bookId;
 
