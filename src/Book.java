@@ -13,11 +13,8 @@ public class Book {
     public Book(String bookTitle,String bookId) {
         this.bookTitle = bookTitle;
         this.bookId = bookId;
-
     }
-
     public Book() {
-
     }
     //Methoden
 

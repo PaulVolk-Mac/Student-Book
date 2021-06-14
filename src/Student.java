@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Student extends Book{
     //Attribute
-    private String iD;
+    private String iD = UUID.randomUUID().toString();
     private String lastName;
     private String firstName;
 
-    public  Student(String iD, String firstName, String lastName ,Set<Book>books) {
+
+
+    public  Student(String iD, String firstName, String lastName , Set<Book>books) {
         super();
         this.iD = iD;
         this.firstName = firstName;
@@ -29,12 +31,14 @@ public class Student extends Book{
         return Objects.hash(getiD(), lastName, getFirstName());
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Student{" +
                 "iD='" + iD + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", book=" + getBookTitle() +
+                ", bookID='" + getBookData() + '\'' +
+
                 '}';
     }
 
@@ -54,9 +58,11 @@ public class Student extends Book{
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-
-        this.firstName = firstName;
+    public void setiD(String iD) { this.iD = iD;
+    }
+    public String getLastName() { return lastName;
+    }
+    public void setLastName(String lastName) { this.lastName = lastName;
     }
     public void setStudentOnly(String firstName, String lastName, String iD){
         this.firstName = firstName;

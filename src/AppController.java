@@ -8,8 +8,6 @@ public class AppController {
     Scanner scannerVariable = new Scanner(System.in);
     boolean i = true;
     Scanner scan = new Scanner(System.in);
-
-
     public void cases() throws InterruptedException {
         while (i == true) {
         menu();
@@ -23,53 +21,18 @@ public class AppController {
                     createStud();
                     break;
                     case 2:
-                    info();
+                        changeStud();
                     break;
-                    case 3:
-                    changeStud();
+                    case 3: info();
                     break;
-                    case 4:
-                    deleteStud();
+                    case 4: deleteStud();
                     break;
-                    case 5:
-                    System.out.println("You will leave the application");
+                    case 5: System.out.println("You will leave the application");
                     i = false;
                     break;
                 default:
                             }
         }
-    }
-    public void createStud() throws InterruptedException {
-        System.out.println("You want to create a Student");
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Enter first name");
-        String fN = keyboard.nextLine();
-
-        System.out.println("Enter last name");
-        String lN = keyboard.nextLine();
-
-        System.out.println("enter your iD ?");
-        String iD = keyboard.nextLine();
-
-        System.out.println(" Enter book title");
-        String title = keyboard.nextLine();
-
-        System.out.println("enter book id?");
-        String bookId = keyboard.nextLine();
-
-        System.out.println(" your name is " + fN + lN + "," + iD + " is your id " + "you got the book: ");
-        System.out.println(" " + title + " with the id " + bookId);
-        Book book = new Book(title, bookId);
-        books.add(book);
-        Student stud = new Student(fN, lN, iD, Set.copyOf(books));  // cast things in object
-        students.add(stud);
-        Thread.sleep(400);
-        System.out.print("Back to the menu  \n " +
-                "...");
-        Thread.sleep(400);
-        System.out.println("\n");
-
-
     }
 
     public void menu() {
@@ -82,13 +45,43 @@ public class AppController {
         System.out.print("Type in your number(1-5) : ");
 
     }
+    public void createStud() throws InterruptedException {
+        System.out.println("You want to create a Student");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" Enter first name");
+        String fN = keyboard.nextLine();
+        System.out.println("Enter last name");
+        String lN = keyboard.nextLine();
 
-    public void info() throws InterruptedException {
+        System.out.println("enter your iD ?");
+        String iD = keyboard.nextLine();
+
+        System.out.println(" Enter book title");
+        String title = keyboard.nextLine();
+
+        System.out.println("enter book id?");
+        String bookId = keyboard.nextLine();
+
+        System.out.println(" your name is " + fN + lN + "," + iD.hashCode() + " is your id " + "you got the book: ");
+        System.out.println(" " + title + " with the id " + bookId);
+        Book book = new Book(title, bookId);
+        books.add(book);
+        Student stud = new Student(fN, lN, iD, Set.of(book));  // cast things in object
+        students.add(stud);
+        Thread.sleep(400);
+        System.out.print("Back to the menu  \n " +
+                "...");
+        Thread.sleep(400);
+        System.out.println("\n");
+
+
+    }
+    public void changeStud() throws InterruptedException {
         if (books.isEmpty() && students.isEmpty()) {
             System.out.print("Pls create something first ;)");
         } else {
             System.out.println("Seems like you want to update a Book/Student");
-            System.out.println("1 for Book and 2 for Student");
+            System.out.println("1 for Student and 2 for Book");
             int upd = scannerVariable.nextInt();
             if (upd == 1) {
                 System.out.println("You have  " + books.size() + "added");
@@ -153,30 +146,25 @@ public class AppController {
 
         }
     }
-
-    public void changeStud(){
+    public void info(){
         if (books.isEmpty() && students.isEmpty()) {
             System.out.print("pls create something first ;)");
         } else {
 
 
-            System.out.println("Info about Book = 1 or Student = 2 ?  ");
+            System.out.println("Info about Student = 1 or Book = 2 ?  ");
             int IBS = scannerVariable.nextInt();
             if (IBS == 1) {
                 // ausgabe von Object
                 System.out.println("you have " + books.size() + " added into your book DataBase");
                 System.out.println(books.toString());
-
-
             } else {
                 System.out.println("you have " + students.size() + " added into your student DataBase");
-
-                System.out.println(students.toString());
+                System.out.println(students.toString() );
 
             }
         }
     }
-
     public void deleteStud() throws InterruptedException {
         System.out.println("You want to delete a Book/Student \n" + " 1 = Book und 2 = Student");
         int count = 0;
