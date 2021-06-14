@@ -1,24 +1,41 @@
 import java.util.Objects;
+import java.util.UUID;
 
 public class Book {
 
        //Attribute
         private String bookTitle;
-        private String bookId;
+        private String bookId = UUID.randomUUID().toString();
 
 
 
     // Konstruktor
-    public Book(){
-
-    }
-
-    public Book(String bookTitle, String bookId) { // 2 attributes now // had wrong attribute in parameter
+    public Book(String bookTitle,String bookId) {
         this.bookTitle = bookTitle;
         this.bookId = bookId;
 
     }
+
+    public Book() {
+
+    }
     //Methoden
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
+    }
 
     @Override
     public String toString() {
@@ -62,14 +79,8 @@ public class Book {
             return bookTitle+ " " +   "(" + bookId+ ")" ;
     }
 
-    public void setBook(String title, String id){
-    this.bookTitle = bookTitle;
-    this.bookId = bookId;
+
 
     }
-    public void getInfoBook(){
-    }
-    public void deleteBook(){
 
-}
-    }
+

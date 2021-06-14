@@ -3,28 +3,20 @@ import java.util.ArrayList;
 
 
 public class Student extends Book{
-
-
     //Attribute
     private String iD;
     private String lastName;
-    Book book;
-    ArrayList<Book> books = new ArrayList<Book>();
     private String firstName;
 
-    public  Student(String iD, String firstName, String lastName, Book book,Set<Book>books) { // set Book to Parameter
+    public  Student(String iD, String firstName, String lastName ,Set<Book>books) {
+        super();
         this.iD = iD;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.book = book;
-        this.books = new ArrayList<Book>((Collection<? extends Book>) books);
-
-
 
     }
     //Methods
-    @Override
-    public boolean equals(Object o) {   // auto generate the equals and hashcodes
+    @Override public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
@@ -33,22 +25,18 @@ public class Student extends Book{
                 Objects.equals(getFirstName(), student.getFirstName());
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return Objects.hash(getiD(), lastName, getFirstName());
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "Student{" +
                 "iD='" + iD + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", book=" + book +
+                ", book=" + getBookTitle() +
                 '}';
     }
-
-
 
     public String getLastname() {
         return lastName;
@@ -70,29 +58,18 @@ public class Student extends Book{
 
         this.firstName = firstName;
     }
-
-
-
     public void setStudentOnly(String firstName, String lastName, String iD){
         this.firstName = firstName;
         this.lastName = lastName;
         this.iD = iD;
+    }
+    public void getStudent() {
+        Scanner scanStud = new Scanner(System.in);
+        int sc = scanStud.nextInt();
 
 
     }
-    public void setStudent(String iD, String firstName, String lastName, Book book,Set<Book>books) { // set Book to Parameter
-        this.iD = iD;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.book = book;
-        this.books = new ArrayList<Book>((Collection<? extends Book>) books);
-    }
-    public void getInfoStudent(){
 
-    }
-    public void deleteStudent(){
-
-    }
 }
 
 
