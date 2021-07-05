@@ -4,15 +4,14 @@ import java.util.UUID;
 public class Book {
 
        //Attribute
-        private String bookTitle;
-        private String bookId = UUID.randomUUID().toString();
+       private String bookTitle;
+       private String bookId = UUID.randomUUID().toString().trim();
 
 
-
-    // Konstruktor
+        // Konstruktor
     public Book(String bookTitle,String bookId) {
-        this.bookTitle = bookTitle;
-        this.bookId = bookId;
+            this.bookTitle = bookTitle;
+            this.bookId = bookId;
     }
     public Book() {
     }
