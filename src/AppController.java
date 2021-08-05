@@ -3,8 +3,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.UUID;
 
-public class AppController {
-    ArrayList books = new ArrayList<Book>();
+public class AppController  {
+    ArrayList<Book> books = new ArrayList<Book>();
     ArrayList<Student> students = new ArrayList<Student>();
     Scanner scan = new Scanner(System.in);
     boolean i = true;
@@ -53,19 +53,21 @@ public class AppController {
     }
 
     public void createStud() throws InterruptedException {
+        scan.nextLine();
         System.out.println("You want to create a Student");
-        System.out.println(" Enter first name");
+        System.out.println(" Enter first name" );
         String fN = scan.nextLine();
         System.out.println("Enter last name");
         String lN = scan.nextLine();
         System.out.println("your Id will be generated");
-        String iD = UUID.randomUUID().toString();
+        String iD = UUID.randomUUID().toString().trim();
+        checkDouble(iD);
         System.out.println(" Enter book title");
         String title = scan.nextLine();
         System.out.println("Book ID will be generated");
-        String bookId = UUID.randomUUID().toString();
+        String bookId = UUID.randomUUID().toString().trim();
 
-        System.out.println(" your name is " + fN + lN + "," + iD+ " is your id " + "you got the book: ");
+        System.out.println(" your name is " + fN + lN + "," + iD + " is your id " + "you got the book: ");
         System.out.println(" " + title + " with the id " + bookId);
         Book book = new Book(title, bookId);
         books.add(book);
@@ -78,41 +80,35 @@ public class AppController {
         Thread.sleep(400);
         System.out.println("\n");
     }
-// in book und student aufteilen
+
+
     public void changeStud() throws InterruptedException {
         if (books.isEmpty() && students.isEmpty()) {
             System.out.print("Pls create something first ;)");
         } else {
             System.out.println("Seems like you want to update a Book/Student");
-            System.out.println("1 for Student and 2 for Book");
+            System.out.println("1 for Book and 2 for Student");
             int upd = scan.nextInt();
             if (upd == 1) {
                 System.out.println("You have  " + books.size() + "added");
                 int count = 0;
                 for (int j = 0; j < books.size(); j++) {                 // to loop the elements and count them
-                    Book bookdata = (Book) books.get(j);
                     count++;                                             // counts the amount of objects in Books
                     System.out.println(books.toString());
-
-                    }
-                System.out.println("type in your bookid :" );
+                }
+                System.out.println("type in your bookid :");
                 String findId = scan.nextLine();
-                if(findBook(findId)== true) {
 
-                    String bookName;
-                    String newId;
-                    Scanner bN = new Scanner(System.in);
+                if(findBook(findId) == true) {
                     System.out.println("New book title : ");
-                    bookName = bN.nextLine();
+                    String newBookTitle = scan.nextLine();
                     System.out.println("new iD : ");
-                    newId = bN.nextLine();
-                    System.out.println("changes will be done !"); // overwirtes the Objects that were in the list
-                    Book replaceBook = new Book(bookName, newId);  // created a new object that replace the object that i choose in the books.set method
-                    replaceBook.setBookTitle(bookName);
-                    replaceBook.setBookId(newId);
-                    //books.set(newId, replaceBook);
-                    //int replace1 = scannerVariable.nextInt();            // get index of the Object in Arraylist
-                    //int x = replace1; // changed the obect to books (bookdata before)
+                    String newBookId = scan.nextLine();
+                    System.out.println("changes will be done !");
+                    Book replaceBook = new Book(newBookTitle, newBookId);
+                    replaceBook.setBookTitle(newBookTitle);
+                    replaceBook.setBookId(newBookId);
+
                 }
                 Thread.sleep(400);
             } else {
@@ -121,35 +117,29 @@ public class AppController {
                 for (int j = 0; j < students.size(); j++) {
                     Student studData = (Student) students.get(j);
                     count++;
-                    /*System.out.println(students.toString());
-                    System.out.println(" choose index you want to replace, respect order starts with 0");
-                    int replace = scannerVariable.nextInt();        // get index of the Object in Arraylist
-                    int x = replace;
-                    // choose the right index ,
-                    */
-
-                    Scanner sN = new Scanner(System.in);
-                    System.out.println("New firstName : ");
-                    String firstName = sN.nextLine();
-                    System.out.println("new lastName : ");
-                    String lastName = sN.nextLine();
-                    System.out.println("new Id : ");
-                    String newStudentId = sN.nextLine();
-                    System.out.println(" Enter new book title");
-                    String newTitle = sN.nextLine();
-
-                    System.out.println("enter new book id?");
-                    String newBookId = sN.nextLine();
-                    System.out.println("changes will be done !");
-                    Book newBook = new Book(newTitle, newBookId);     // create object that i can set it into the Student Object
-                    Student replaceStud = new Student(firstName, lastName, newStudentId);
-                    replaceStud.setiD(newStudentId);
-                    replaceStud.setLastName(lastName);
-                    replaceStud.setFirstname(firstName);
-
-                    //students.set(replace, replaceStud);
-
-                    break;
+                    System.out.println(students.toString() + "\n" + "Enter Id of your student");
+                    scan.nextLine();
+                    String studID = scan.nextLine();
+                    if(findStudent(studID)) {
+                        System.out.println("New firstName : ");
+                        String firstName = scan.nextLine();
+                        System.out.println("new lastName : ");
+                        String lastName = scan.nextLine();
+                        System.out.println("new Id : ");
+                        String newStudentId = UUID.randomUUID().toString().trim();
+                        checkDouble(newStudentId);
+                        System.out.println(" Enter new book title");
+                        String newTitle = scan.nextLine();
+                        System.out.println("enter new book id?");
+                        String newBookId = UUID.randomUUID().toString().trim();
+                        System.out.println("changes will be done !");
+                        Book newBook = new Book(newTitle, newBookId);     // create object that i can set it into the Student Object
+                        Student replaceStud = new Student(firstName, lastName, newStudentId);
+                        replaceStud.setStudentID(newStudentId);
+                        replaceStud.setLastName(lastName);
+                        replaceStud.setFirstName(firstName);
+                        break;
+                    }
                 }
             }
 
@@ -185,7 +175,7 @@ public class AppController {
         if (wasloeschen == 1) {
             System.out.println("You have  " + books.size() + "added");
             for (int j = 0; j < books.size(); j++) {  //
-                Book bookdata = (Book) books.get(j);
+                Book bookdata = books.get(j);
                 count++;
             }
             System.out.println(books.toString());
@@ -219,9 +209,9 @@ public class AppController {
 
     public boolean findBook(String bookID) {
         System.out.println("what id are you looking for ?");
-        for (Student kontaktInListe : students) {
-            if (bookID.equals(kontaktInListe.getBookId())) {
-                System.out.println("gefunden" + "Name:" + kontaktInListe.getFirstName() + "id." + kontaktInListe.getiD());
+        for (Student bookInList : students) {
+            if (bookID.equals(bookInList.getBookId())) {
+                System.out.println("gefunden" + "Name:" + bookInList.getFirstName() + "id." + bookInList.getBookId());
                 return true;
             }
         }
@@ -229,4 +219,28 @@ public class AppController {
         return false;
     }
 
+    public boolean findStudent(String studID) {
+        System.out.println("what id are you looking for ?");
+        for (Student studInList : students) {
+            if (studID.equals(studInList.getStudentID())) {
+                System.out.println("gefunden" + "Name:" + studInList.getFirstName() + "id." + studInList.getStudentID());
+                System.out.println();
+                return true;
+            }
+
+        }
+        System.out.println("nichts gefunden");
+        return false;
+    }
+
+    public boolean checkDouble(String StudentID) {
+        System.out.println("checking if id already been used");
+        for (Student studentCheck : students)
+            if (students.contains(this.findBook(StudentID))) {
+                System.out.println("the id is already been used " + studentCheck.getStudentID());
+                return true;
+            }
+        System.out.println("go on");
+            return false;
+    }
 }

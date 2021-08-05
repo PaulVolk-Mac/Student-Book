@@ -13,7 +13,8 @@ public class Book {
             this.bookTitle = bookTitle;
             this.bookId = bookId;
     }
-    public Book() {
+    public Book(){
+
     }
     //Methoden
 
@@ -21,16 +22,16 @@ public class Book {
         return bookTitle;
     }
 
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
+    public String setBookTitle(String bookTitle) {
+        return this.bookTitle = bookTitle;
     }
 
     public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
+    public String setBookId(String bookId) {
+        return this.bookId = bookId;
     }
 
     @Override
@@ -59,16 +60,16 @@ public class Book {
         return bookTitle;
     }
 
-    public void setTitle(String title) {
-        this.bookTitle = bookTitle;
+    public String setTitle(String title) {
+       return this.bookTitle = bookTitle;
     }
 
     public String getId() {
         return bookId;
     }
 
-    public void setId(String id) {
-        this.bookId = bookId;
+    public String setId(String id) {
+       return this.bookId = bookId;
     }
 
     public String getBookData() {

@@ -1,88 +1,24 @@
+import java.awt.List;
 import java.util.*;
-import java.util.ArrayList;
 
 
-public class Student extends Book{
+public class Student extends Book {
     //Attribute
-    private String studentID ;
+    private String studentID;
     private String lastName;
     private String firstName;
-    private Set<Book>books;
+    private ArrayList<Book>books = new ArrayList<>();
 
 
-
-    public  Student(String studentID, String firstName, String lastName) {
-        this.studentID = studentID;
+    public Student( String firstName, String lastName ,String studentID) {
         this.firstName = firstName;
         this.lastName = lastName;
-        Set<Book>books = new Set<Book>() {
-            @Override
-            public int size() {
-                return 0;
-            }
+        this.studentID = studentID;
+        this.books = books;
 
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<Book> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(Book book) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends Book> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-        };
     }
     //Methods
+
 
     @Override
     public boolean equals(Object o) {
@@ -90,13 +26,15 @@ public class Student extends Book{
         if (!(o instanceof Student)) return false;
         if (!super.equals(o)) return false;
         Student student = (Student) o;
-        return Objects.equals(getiD(), student.getiD()) && Objects.equals(getLastName(), student.getLastName()) && Objects.equals(getFirstName(), student.getFirstName()) && Objects.equals(books, student.books);
+        return Objects.equals(getStudentID(), student.getStudentID()) && Objects.equals(getLastName(), student.getLastName()) && Objects.equals(getFirstName(), student.getFirstName()) && Objects.equals(getBooks(), student.getBooks());
     }
 
 
 
-    @Override public int hashCode() {
-        return Objects.hash(getiD(), lastName, getFirstName());
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStudentID(), lastName, getFirstName());
     }
 
     @Override
@@ -110,38 +48,39 @@ public class Student extends Book{
                 '}';
     }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
+    public String getStudentID() {
+        return studentID;
     }
 
-    public String getLastname() {
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getLastName() {
         return lastName;
     }
 
-    public String getiD() {
-        return studentID;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String setFirstname(String firstName){ return this.firstName;}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public void setiD(String iD) { this.studentID = iD;
-    }
-    public String getLastName() { return lastName;
-    }
-    public void setLastName(String lastName) { this.lastName = lastName;
-    }
-    public void getStudent() {
-        Scanner scanStud = new Scanner(System.in);
-        int sc = scanStud.nextInt();
-    }
-    public Set<Book> getBooks() {
+    public ArrayList<Book> getBooks() {
         return books;
     }
+
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
 }
+
 
 
 
