@@ -8,7 +8,7 @@ public class AppController  {
     ArrayList<Student> students = new ArrayList<Student>();
     Scanner scan = new Scanner(System.in);
     boolean i = true;
-
+will was ändern
 
     public void cases() throws InterruptedException {
         while (i == true) {
