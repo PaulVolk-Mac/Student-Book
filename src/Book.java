@@ -1,21 +1,21 @@
 import java.util.Objects;
 import java.util.UUID;
 
+
 public class Book {
 
-       //Attribute
-       private String bookTitle;
-       private String bookId = UUID.randomUUID().toString().trim();
+    //Attribute
+    private String bookTitle;
+    private String bookId;
 
 
-        // Konstruktor
-    public Book(String bookTitle,String bookId) {
-            this.bookTitle = bookTitle;
-            this.bookId = bookId;
+
+    // Konstruktor
+    public Book(String bookTitle) {
+        this.bookTitle = bookTitle;
+        bookId = UUID.randomUUID().toString();
     }
-    public Book(){
 
-    }
     //Methoden
 
     public String getBookTitle() {
@@ -61,7 +61,7 @@ public class Book {
     }
 
     public String setTitle(String title) {
-       return this.bookTitle = bookTitle;
+        return this.bookTitle = bookTitle;
     }
 
     public String getId() {
@@ -69,15 +69,18 @@ public class Book {
     }
 
     public String setId(String id) {
-       return this.bookId = bookId;
+        return this.bookId = bookId;
     }
 
     public String getBookData() {
-            return bookTitle+ " " +   "(" + bookId+ ")" ;
+        return bookTitle+ " " +   "(" + bookId+ ")" ;
     }
 
 
 
-    }
+}
+
+
+
 
 

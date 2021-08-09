@@ -3,39 +3,41 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.UUID;
 
-public class AppController  {
-    ArrayList<Book> books = new ArrayList<Book>();
+public class AppController {
+
     ArrayList<Student> students = new ArrayList<Student>();
     Scanner scan = new Scanner(System.in);
-    boolean i = true;
-will was ändern
+
 
     public void cases() throws InterruptedException {
-        while (i == true) {
-            menu();
-            int number = scan.nextInt();
+        start:
+        while (true) {
+            menu(); // sout kann man in die Main direkt rein packen
+            int number = 0;
             try {
+                number = scan.nextInt();
                 System.out.print("You typed" + "  " + number + " " + "\n");
             } catch (Exception e) {
-                System.out.println(" Error , pls enter a -> Number <- between 1-5");
+                System.out.println(" Error , pls enter a -> Number <- between 1-6");
             }
             switch (number) {
                 case 1:
                     createStud();
                     break;
                 case 2:
-                    changeStud();
+                    addBook();
                     break;
                 case 3:
-                    info();
+                     info();
                     break;
                 case 4:
-                    deleteStud();
+                    //  deleteStud();
                     break;
                 case 5:
+                      changeStud();
+                case 6:
                     System.out.println("You will leave the application");
-                    i = false;
-                    break;
+                    break start;
                 default:
             }
         }
@@ -43,37 +45,27 @@ will was ändern
 
     public void menu() {
         System.out.print("What do you want to do today ? (hint: start with creating something)  \n" +
-                "1 = I want to create a Book / Student \n " +
-                "2 = I want to update a Book / Student \n " +
-                "3 = I need  information about a Book /Student \n " +
-                "4 = I want to delete a Book / Student \n " +
-                "5 = I want to Exit \n");
-        System.out.print("Type in your number(1-5) : ");
+                "1 = I want to create a Student \n " +
+                "2 = I want to add a Book to Student \n " +
+                "3 = I need  information about a Book or Student \n " +
+                "4 = I want to delete a Student or Book \n " +
+                "5 = I want to update Student or Book \n " +
+                "6 = I want to Exit \n");
+        System.out.print("Type in your number(1-6) : ");
 
     }
 
     public void createStud() throws InterruptedException {
         scan.nextLine();
-        System.out.println("You want to create a Student");
-        System.out.println(" Enter first name" );
+        System.out.println("You want to create a Student ");
+        System.out.println(" Enter first name ");
         String fN = scan.nextLine();
-        System.out.println("Enter last name");
+        System.out.println("Enter last name ");
         String lN = scan.nextLine();
-        System.out.println("your Id will be generated");
-        String iD = UUID.randomUUID().toString().trim();
-        checkDouble(iD);
-        System.out.println(" Enter book title");
-        String title = scan.nextLine();
-        System.out.println("Book ID will be generated");
-        String bookId = UUID.randomUUID().toString().trim();
-
-        System.out.println(" your name is " + fN + lN + "," + iD + " is your id " + "you got the book: ");
-        System.out.println(" " + title + " with the id " + bookId);
-        Book book = new Book(title, bookId);
-        books.add(book);
-        Student stud = new Student(fN, lN, iD);  // cast things in object
+        System.out.println("your Id will be generated ");
+        Student stud = new Student(fN, lN);
         students.add(stud);
-        stud.getBooks().add(book);
+        System.out.println(" your name is " + fN + lN + "," + stud.getStudentID() + " is your id ");
         Thread.sleep(400);
         System.out.print("Back to the menu  \n " +
                 "...");
@@ -81,93 +73,76 @@ will was ändern
         System.out.println("\n");
     }
 
+    public void addBook() {
+
+        if (students.isEmpty()) {
+            System.out.println("cant add Book without student , create stud first ... ");
+        } else {
+            System.out.println("choose one of the following student by entering the correct id ");
+            for (Student studInList : students) {
+                System.out.println("found some " + "firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
+            }
+            System.out.println("enter id of the student ");
+            scan.nextLine();
+            String studID = scan.nextLine().trim();
+            Student chosenStudent = findStudent(studID);
+            if (chosenStudent != null) {
+                System.out.println("pls enter your book title ");
+                String bookTitle = scan.nextLine().trim();
+                Book bookToStudent = new Book(bookTitle);
+                chosenStudent.getBooks().add(bookToStudent);
+                System.out.println("added succecsfully ");
+            } else {
+                System.out.println("no student found with the entered id ");
+            }
+        }
+
+    }
 
     public void changeStud() throws InterruptedException {
-        if (books.isEmpty() && students.isEmpty()) {
-            System.out.print("Pls create something first ;)");
+        if (students.isEmpty()) {
+            System.out.print("Pls create a student first ;) ");
         } else {
-            System.out.println("Seems like you want to update a Book/Student");
-            System.out.println("1 for Book and 2 for Student");
-            int upd = scan.nextInt();
-            if (upd == 1) {
-                System.out.println("You have  " + books.size() + "added");
-                int count = 0;
-                for (int j = 0; j < books.size(); j++) {                 // to loop the elements and count them
-                    count++;                                             // counts the amount of objects in Books
-                    System.out.println(books.toString());
-                }
-                System.out.println("type in your bookid :");
-                String findId = scan.nextLine();
-
-                if(findBook(findId) == true) {
-                    System.out.println("New book title : ");
-                    String newBookTitle = scan.nextLine();
-                    System.out.println("new iD : ");
-                    String newBookId = scan.nextLine();
-                    System.out.println("changes will be done !");
-                    Book replaceBook = new Book(newBookTitle, newBookId);
-                    replaceBook.setBookTitle(newBookTitle);
-                    replaceBook.setBookId(newBookId);
-
-                }
-                Thread.sleep(400);
-            } else {
-                System.out.println("You have  " + students.size() + "added");
-                int count = 0;
-                for (int j = 0; j < students.size(); j++) {
-                    Student studData = (Student) students.get(j);
-                    count++;
-                    System.out.println(students.toString() + "\n" + "Enter Id of your student");
-                    scan.nextLine();
-                    String studID = scan.nextLine();
-                    if(findStudent(studID)) {
-                        System.out.println("New firstName : ");
-                        String firstName = scan.nextLine();
-                        System.out.println("new lastName : ");
-                        String lastName = scan.nextLine();
-                        System.out.println("new Id : ");
-                        String newStudentId = UUID.randomUUID().toString().trim();
-                        checkDouble(newStudentId);
-                        System.out.println(" Enter new book title");
-                        String newTitle = scan.nextLine();
-                        System.out.println("enter new book id?");
-                        String newBookId = UUID.randomUUID().toString().trim();
-                        System.out.println("changes will be done !");
-                        Book newBook = new Book(newTitle, newBookId);     // create object that i can set it into the Student Object
-                        Student replaceStud = new Student(firstName, lastName, newStudentId);
-                        replaceStud.setStudentID(newStudentId);
-                        replaceStud.setLastName(lastName);
-                        replaceStud.setFirstName(firstName);
-                        break;
-                    }
-                }
+            System.out.println("Seems like you want to update a Student ");
+            System.out.println("You have  " + students.size() + "added ");
+            int count = 0;
+            for (Student studInList : students) {
+                System.out.println("found some " + " firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
             }
-
-            Thread.sleep(1000);
-
-
+            System.out.println("enter id of the student");
+            scan.nextLine();
+            String studID = scan.nextLine().trim();
+            Student chosenStudent = findStudent(studID);
+            if (chosenStudent != null) {
+                System.out.println("pls enter your FirstName");
+                String newFirstN = scan.nextLine();
+                chosenStudent.setFirstName(newFirstN);
+                System.out.println("pls enter your LastName");
+                String newLastN = scan.nextLine();
+                chosenStudent.setFirstName(newLastN);
+            } else {
+                System.out.println("no student found with the entered id");
+            }
         }
     }
+
+
 
     public void info() {
-        if (books.isEmpty() && students.isEmpty()) {
-            System.out.print("pls create something first ;)");
+        if ( students.isEmpty()) {
+            System.out.print("pls create a student first ;)");
         } else {
-            System.out.println("Info about Student = 1 or Book = 2 ?  ");
-            int IBS = scan.nextInt();
-            if (IBS == 1) {
-                // ausgabe von Object
-                for (int i = 0; i < books.size(); i++) {
-                    System.out.println("you have " + books.size() + " added into your book DataBase");
-                    System.out.println(books.get(i));
-                }
-            } else {
-                System.out.println("you have " + students.size() + " added into your student DataBase");
-                System.out.println(students.toString());
+            for (Student studInList : students) {
+            }
+            System.out.println("enter id of the student");
+            scan.nextLine();
+            String studID = scan.nextLine().trim();
+            Student chosenStudent = findStudent(studID);
+            System.out.println(" found some " + "firstname: " + chosenStudent.getFirstName() + " lastname " + chosenStudent.getLastName() + " id " + chosenStudent.getStudentID() + chosenStudent.getBooks() + "\n");
             }
         }
-    }
 
+/*
     public void deleteStud() throws InterruptedException {
         System.out.println("You want to delete a Book/Student \n" + " 1 = Book und 2 = Student");
         int count = 0;
@@ -206,41 +181,22 @@ will was ändern
 
 
     }
+*/
 
-    public boolean findBook(String bookID) {
-        System.out.println("what id are you looking for ?");
-        for (Student bookInList : students) {
-            if (bookID.equals(bookInList.getBookId())) {
-                System.out.println("gefunden" + "Name:" + bookInList.getFirstName() + "id." + bookInList.getBookId());
-                return true;
-            }
-        }
-        System.out.println("nichts gefunden");
-        return false;
-    }
 
-    public boolean findStudent(String studID) {
+    public Student findStudent(String studID) {
         System.out.println("what id are you looking for ?");
         for (Student studInList : students) {
             if (studID.equals(studInList.getStudentID())) {
-                System.out.println("gefunden" + "Name:" + studInList.getFirstName() + "id." + studInList.getStudentID());
+                System.out.println("gefunden " + " Name: " + studInList.getFirstName() + " id." + studInList.getStudentID());
                 System.out.println();
-                return true;
+                return studInList;
             }
 
         }
         System.out.println("nichts gefunden");
-        return false;
+        return null;
     }
 
-    public boolean checkDouble(String StudentID) {
-        System.out.println("checking if id already been used");
-        for (Student studentCheck : students)
-            if (students.contains(this.findBook(StudentID))) {
-                System.out.println("the id is already been used " + studentCheck.getStudentID());
-                return true;
-            }
-        System.out.println("go on");
-            return false;
-    }
+
 }
