@@ -72,15 +72,11 @@ public class Book {
         return this.bookId = bookId;
     }
 
-    public String getBookData() {
-        return bookTitle+ " " +   "(" + bookId+ ")" ;
-    }
+ 
 
 
 
 }
-
-
 
 
 
