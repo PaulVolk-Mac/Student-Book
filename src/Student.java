@@ -2,12 +2,11 @@
 import java.util.*;
 
 public class Student {
-    //Attribute
-    private String studentID;
+
+    private final String studentID;
     private String lastName;
     private String firstName;
     private ArrayList<Book>books ;
-
 
     public Student( String firstName, String lastName) {
         this.firstName = firstName;
@@ -15,8 +14,6 @@ public class Student {
         studentID = UUID.randomUUID().toString();
         books = new ArrayList<Book>();
     }
-    //Methods
-
 
     @Override
     public boolean equals(Object o) {
@@ -27,12 +24,25 @@ public class Student {
         return Objects.equals(getStudentID(), student.getStudentID()) && Objects.equals(getLastName(), student.getLastName()) && Objects.equals(getFirstName(), student.getFirstName()) && Objects.equals(getBooks(), student.getBooks());
     }
 
+    public String getLastName() {
+        return lastName;
+    }
 
-
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
 
     @Override
     public int hashCode() {
         return Objects.hash(getStudentID(), lastName, getFirstName());
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     @Override
@@ -46,32 +56,12 @@ public class Student {
                 '}';
     }
 
-    public String getStudentID() {
-        return studentID;
-    }
-
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public ArrayList<Book> getBooks() {
-        return books;
     }
 
     public void setBooks(ArrayList<Book> books) {
@@ -82,27 +72,13 @@ public class Student {
         System.out.println("what id are you looking for ?");
         for (Book bookInList : books) {
             if (bookID.equals(bookInList.getBookId())) {
-                System.out.println("gefunden" + "Name:" + bookInList.getTitle() + "id." + bookInList.getBookId());
+                System.out.println("found some" + "Bookname:" + bookInList.getBookTitle() + ", id." + bookInList.getBookId());
                 return bookInList;
             }
         }
-        System.out.println("nichts gefunden");
+        System.out.println("nothing found");
         return null;
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

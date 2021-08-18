@@ -54,16 +54,16 @@ public class AppController {
 
     }
 
-    public void createStud() throws InterruptedException {
-        System.out.println("You want to create a Student ");
+    public void createStud()  {
+        System.out.println("Create a student :... ");
         System.out.println(" Enter first name ");
         String fN = scan.nextLine();
         System.out.println("Enter last name ");
         String lN = scan.nextLine();
-        System.out.println("your Id will be generated ");
+        System.out.println("Your Id will be generated ");
         Student stud = new Student(fN, lN);
         students.add(stud);
-        System.out.println(" your name is " + fN + lN + "," + stud.getStudentID() + " is your id ");
+        System.out.println(" Your name is : " + fN + lN + ", Your Id is : " + stud.getStudentID()  );
         System.out.print("Back to the menu  \n " +
                 "...");
         System.out.println("\n");
@@ -72,25 +72,25 @@ public class AppController {
     public void addBook() {
 
         if (students.isEmpty()) {
-            System.out.println("cant add Book without student , create stud first ... ");
+            System.out.println("You cant add a Book without an existing student , create student first ... ");
         } else {
             boolean addBook = true;
             while (addBook) {
-                System.out.println("choose one of the following student by entering the correct id ");
+                System.out.println("Choose one of the following students by entering the correct id ");
                 for (Student studInList : students) {
-                    System.out.println("found some " + "firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
+                    System.out.println("Found some " + " firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
                 }
-                System.out.println("enter id of the student ");
+                System.out.println("Enter id of the student ");
                 String studID = scan.nextLine().trim();
                 Student chosenStudent = findStudent(studID);
                 boolean run =true;
                 if(chosenStudent != null) {
                     while (run) {
-                        System.out.println("pls enter your book title ");
+                        System.out.println("Enter a booktitel now ");
                         String bookTitle = scan.nextLine().trim();
                         Book bookToStudent = new Book(bookTitle);
                         chosenStudent.getBooks().add(bookToStudent);
-                        System.out.println("added succsessfully ");
+                        System.out.println("Added successfully ");
                         System.out.println("You want to add another book ?   \n " +
                                 " press enter to skip this step ");
                         String anotherBook = scan.nextLine().trim();
@@ -99,7 +99,7 @@ public class AppController {
                         }
                     }
                 }else {
-                     System.out.println("no student found with the entered id ");
+                     System.out.println("No student found with the entered id ");
                 }
             addBook = false;
             }
@@ -109,24 +109,24 @@ public class AppController {
 
     public void info() {
         if (students.isEmpty()) {
-            System.out.print("pls create a student first ;)");
+            System.out.print("You have to create a Student first");
         } else {
             for (Student studInList : students) {
-                System.out.println("found some " + " firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
+                System.out.println("Found some " + " firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
             }
-            System.out.println("enter id of the student");
+            System.out.println("Enter id of the student");
             String studID = scan.nextLine().trim();
             Student chosenStudent = findStudent(studID);
-            System.out.println(" found some " + " firstname: " + chosenStudent.getFirstName() + " , lastname : " + chosenStudent.getLastName() + " , id : " + chosenStudent.getStudentID() +" Following " + chosenStudent.getBooks() + "\n");
+            System.out.println(" Found some " + " firstname: " + chosenStudent.getFirstName() + " , lastname : " + chosenStudent.getLastName() + " , id : " + chosenStudent.getStudentID() +" Following " + chosenStudent.getBooks() + "\n");
         }
     }
 
-    public void deleteStud() throws InterruptedException {
+    public void deleteStud()  {
         System.out.println("You want to delete a Student ");
         for (Student studInList : students) {
-            System.out.println("found some " + "firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
+            System.out.println("Found some " + "firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
         }
-        System.out.println("which one do you want to delete, enter Id now :   ");
+        System.out.println("Enter Id now of the student you want to delete:   ");
         String studID = scan.nextLine().trim();
         Student chosenStudent = findStudent(studID);
         if (chosenStudent != null) {
@@ -135,10 +135,10 @@ public class AppController {
         }
     }
 
-    public void deleteBook() throws InterruptedException {
+    public void deleteBook()  {
         System.out.println("You want to delete a Book , enter your students id first ");
         for (Student student : students) {
-            System.out.println("found some " + "firstname: " + student.getFirstName() + " lastname " + student.getLastName() + " id " + student.getStudentID() +
+            System.out.println("Found some " + "firstname: " + student.getFirstName() + " lastname " + student.getLastName() + " id " + student.getStudentID() +
                     "\n");
         }
 
@@ -162,7 +162,7 @@ public class AppController {
 
     }
 
-    public void changeStud() throws InterruptedException {
+    public void changeStud()  {
         if (students.isEmpty()) {
             System.out.print("Pls create a student first ;) ");
         } else {
@@ -172,7 +172,6 @@ public class AppController {
                 System.out.println("found some " + " firstname: " + studInList.getFirstName() + " lastname " + studInList.getLastName() + " id " + studInList.getStudentID() + "\n");
             }
             System.out.println("enter id of the student");
-            scan.nextLine();
             String studID = scan.nextLine().trim();
             Student chosenStudent = findStudent(studID);
             if (chosenStudent != null) {
@@ -181,7 +180,7 @@ public class AppController {
                 chosenStudent.setFirstName(newFirstN);
                 System.out.println("pls enter your lastName");
                 String newLastN = scan.nextLine();
-                chosenStudent.setFirstName(newLastN);
+                chosenStudent.setLastName(newLastN);
                 System.out.println("successfully updated");
             } else {
                 System.out.println("no student found with the entered id");
